@@ -1,0 +1,7 @@
+<div class="suite">
+    <button class="collapsible" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed">{{suite.name}}</button>
+    <div class="suite-content" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <app-test *ngFor="let test of suite.tests" [test]="test"></app-test>
+        <app-suite *ngFor="let _suite of suite.suites" [suite]="_suite"></app-suite>
+    </div>
+</div>

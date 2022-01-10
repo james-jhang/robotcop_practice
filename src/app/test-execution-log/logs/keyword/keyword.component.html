@@ -1,0 +1,6 @@
+<div class="keyword">
+    <button class="collapsible" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed">{{keyword.name}}</button>
+    <div class="keyword-content" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <app-keyword *ngFor="let _keyword of keyword.keywords" [keyword]="_keyword"></app-keyword>
+    </div>
+</div>
