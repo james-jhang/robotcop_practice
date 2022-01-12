@@ -7,11 +7,10 @@
 
 .sidebar {
     max-width: 10vh;
-    border: 1px dashed blue;
+    border-right: 1px solid #a8a8a8;
 }
 
 .content {
     flex-grow: 1;
-    border: 1px dashed red;
     overflow-y: auto;
 }

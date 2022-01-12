@@ -1,7 +1,44 @@
 <div class="suite">
-    <button class="collapsible" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed">{{suite.name}}</button>
-    <div class="suite-content" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-        <app-test *ngFor="let test of suite.tests" [test]="test"></app-test>
-        <app-suite *ngFor="let _suite of suite.suites" [suite]="_suite"></app-suite>
+    <div class="suite-bar" (click)="toggle()">
+        <div class="suite-info">
+            <span class="suite-icon" title="Suite">Suite</span>
+            <span class="suite-name">{{suite.name}}</span>
+            <span class="suite-elapsed">{{suite.elapsedtime | durationFormat}}</span>
+        </div>
+        <div class="suite-control">
+            <span (click)="expandMore($event)">
+                <mat-icon>expand_more</mat-icon>
+            </span>
+            <span (click)="expandLess($event)">
+                <mat-icon>expand_less</mat-icon>
+            </span>
+            <span (click)="link()">
+                <mat-icon>link</mat-icon>
+            </span>
+        </div>
+    </div>
+    <div class="suite-content" [style.display]="expanded ? '' : 'none'">
+        <app-keyword
+            *ngIf="suite.setup"
+            [type]="'setup'"
+            [keyword]="suite.setup"
+            [expandedAll]="expandedAll">
+        </app-keyword>
+        <app-test
+            *ngFor="let test of suite.tests"
+            [test]="test"
+            [expandedAll]="expandedAll"
+        ></app-test>
+        <app-suite
+            *ngFor="let _suite of suite.suites"
+            [suite]="_suite"
+            [expandedAll]="expandedAll">
+        </app-suite>
+        <app-keyword
+            *ngIf="suite.teardown"
+            [type]="'teardown'"
+            [keyword]="suite.teardown"
+            [expandedAll]="expandedAll">
+        </app-keyword>
     </div>
 </div>

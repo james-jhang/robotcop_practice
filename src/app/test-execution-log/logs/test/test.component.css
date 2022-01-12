@@ -1,18 +1,72 @@
-.test-content {
-    padding: 0 18px;
+.test {
+    margin-left: 0.5cm;
 }
 
-.collapsible {
-    background-color: white;
-    cursor: pointer;
-    padding: 6px;
+.test-bar {
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.active, .collapsible:hover {
-    background-color: #c7c7c7;
+.test-info {
+    margin-right: 80px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.test-bar:hover .test-name {
+    font-weight: bold;
+}
+
+.test-icon {
+    background-color: #168aad80;
+    border-radius: 10%;
+    font-size: smaller;
+}
+
+.test-elapsed {
+    margin-left: auto;
+    font-size: smaller;
+    color: #666666;
+}
+
+.test-bar .test-control {
+    visibility: hidden;
+}
+
+.test-bar:hover .test-control {
+    visibility: visible;
+}
+
+.test-control {
+    display: flex;
+    align-items: center;
+    line-height: 9pt;
+}
+
+.test-control *+* {
+    margin-left: 3px;
+}
+
+.test-control>* {
+    border: 1px solid #a8a8a8;
+    border-radius: 10%;
+}
+
+.test-control mat-icon {
+    font-size: 16px;
+    width: auto;
+    height: auto;
+}
+
+.test-control>*:hover {
+    background-color: #1e6091;
+}
+
+.test-content {
+    border-left: 1px solid #aaaaaa;
+    margin-left: 0.5cm;
 }

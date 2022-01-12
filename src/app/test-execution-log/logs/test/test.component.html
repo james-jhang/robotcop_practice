@@ -1,6 +1,39 @@
 <div class="test">
-    <button class="collapsible" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed">{{test.name}}</button>
-    <div class="test-content" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-        <app-keyword *ngFor="let keyword of test.keywords" [keyword]="keyword"></app-keyword>
+    <div class="test-bar" (click)="toggle()">
+        <div class="test-info">
+            <span class="test-icon" title="Test">Test</span>
+            <span class="test-name">{{test.name}}</span>
+            <span class="test-elapsed">{{test.elapsedtime | durationFormat}}</span>
+        </div>
+        <div class="test-control">
+            <span (click)="expandMore($event)">
+                <mat-icon>expand_more</mat-icon>
+            </span>
+            <span (click)="expandLess($event)">
+                <mat-icon>expand_less</mat-icon>
+            </span>
+            <span (click)="link()">
+                <mat-icon>link</mat-icon>
+            </span>
+        </div>
+    </div>
+    <div class="test-content" [style.display]="expanded ? '' : 'none'">
+        <app-keyword
+            *ngIf="test.setup"
+            class="setup"
+            [keyword]="test.setup"
+            [expandedAll]="expandedAll"
+        ></app-keyword>
+        <app-keyword
+            *ngFor="let keyword of test.keywords"
+            [keyword]="keyword"
+            [expandedAll]="expandedAll">
+        </app-keyword>
+        <app-keyword
+            *ngIf="test.teardown"
+            class="teardown"
+            [keyword]="test.teardown"
+            [expandedAll]="expandedAll">
+        </app-keyword>
     </div>
 </div>

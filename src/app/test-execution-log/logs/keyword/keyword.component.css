@@ -1,18 +1,72 @@
-.keyword-content {
-    padding: 0 18px;
+.keyword {
+    margin-left: 0.5cm;
 }
 
-.collapsible {
-    background-color: white;
-    cursor: pointer;
-    padding: 6px;
+.keyword-bar {
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.active, .collapsible:hover {
-    background-color: #c7c7c7;
+.keyword-info {
+    margin-right: 80px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.keyword-bar:hover .keyword-name {
+    font-weight: bold;
+}
+
+.keyword-icon {
+    background-color: #168aad80;
+    border-radius: 10%;
+    font-size: smaller;
+}
+
+.keyword-elapsed {
+    margin-left: auto;
+    font-size: smaller;
+    color: #666666;
+}
+
+.keyword-bar .keyword-control {
+    visibility: hidden;
+}
+
+.keyword-bar:hover .keyword-control {
+    visibility: visible;
+}
+
+.keyword-control {
+    display: flex;
+    align-items: center;
+    line-height: 9pt;
+}
+
+.keyword-control *+* {
+    margin-left: 3px;
+}
+
+.keyword-control>* {
+    border: 1px solid #a8a8a8;
+    border-radius: 10%;
+}
+
+.keyword-control mat-icon {
+    font-size: 16px;
+    width: auto;
+    height: auto;
+}
+
+.keyword-control>*:hover {
+    background-color: #a8a8a8;
+}
+
+.keyword-content {
+    border-left: 1px solid #aaaaaa;
+    margin-left: 0.5cm;
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Suite } from '../../robot-model';
 
 @Component({
@@ -6,27 +6,43 @@ import { Suite } from '../../robot-model';
   templateUrl: './suite.component.html',
   styleUrls: ['./suite.component.css']
 })
-export class SuiteComponent implements OnInit {
+export class SuiteComponent implements OnInit, OnChanges {
 
   @Input() suite!: Suite;
+  @Input() expandedAll: boolean = false;
+  @Input() expanded: boolean = true;
 
-  isCollapsed: boolean = false;
 
-  // id!: string;
-  // name!: string;
-  // longname!: string;
-  // source!: string;
-  // passed!: boolean;
-  // status!: string;
-  // starttime!: Date;
-  // endtime!: Date;
-  // elapsedtime!: number;
-  // setup!: Keyword;
-  // teardown!: Keyword;
-  // suite_test!: (Test|Suite)[];
+  constructor() {
+    console.log(this.suite);
+  }
 
-  constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['expandedAll']) {
+      this.expanded = changes['expandedAll']['currentValue'];
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  toggle() {
+    this.expanded = !this.expanded;
+  }
+
+  expandMore(event: Event) {
+    this.expandedAll = true;
+    this.expanded = true;
+    event.stopPropagation();
+  }
+
+  expandLess(event: Event) {
+    this.expandedAll = false;
+    this.expanded = false;
+    event.stopPropagation();
+  }
+
+  link() {
+
   }
 }

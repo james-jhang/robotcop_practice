@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatIconModule } from '@angular/material/icon';
 
 import { LogsComponent } from "./logs/logs.component";
 
@@ -7,19 +9,21 @@ import { TestExecutionLogRoutingModule } from "./test-execution-log-routing.modu
 import { SuiteComponent } from './logs/suite/suite.component';
 import { TestComponent } from './logs/test/test.component';
 import { KeywordComponent } from './logs/keyword/keyword.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DurationFormatPipe } from './logs/duration-format.pipe';
 
 @NgModule({
     imports: [
         CommonModule,
-        NgbModule,
         TestExecutionLogRoutingModule,
+        CdkAccordionModule,
+        MatIconModule
     ],
     declarations: [
         LogsComponent,
         SuiteComponent,
         TestComponent,
-        KeywordComponent
+        KeywordComponent,
+        DurationFormatPipe
     ]
 })
-export class TestExecutionLogModule {}
+export class TestExecutionLogModule { }

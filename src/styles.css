@@ -8,3 +8,6 @@ body {
     box-sizing: border-box;
     padding: 8px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

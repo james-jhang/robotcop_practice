@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestExecutionLogModule } from "./test-execution-log/test-execution-log.module";
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     TestExecutionLogModule,
-    NgbModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

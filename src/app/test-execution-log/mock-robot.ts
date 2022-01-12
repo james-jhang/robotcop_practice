@@ -1,7 +1,7 @@
 import "./robot-model";
 import * as moment from 'moment';
-import { Suite, Test, Keyword } from "./robot-model";
 moment().format();
+import { Suite, Test, Keyword } from "./robot-model";
 
 function robotTimetoDate(time: string) {
     return moment(time, 'YYYYMMDD HH:mm:ss.SSS').toDate();

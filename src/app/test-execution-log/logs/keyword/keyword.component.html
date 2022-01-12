@@ -1,6 +1,41 @@
 <div class="keyword">
-    <button class="collapsible" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed">{{keyword.name}}</button>
-    <div class="keyword-content" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-        <app-keyword *ngFor="let _keyword of keyword.keywords" [keyword]="_keyword"></app-keyword>
+    <div class="keyword-bar" (click)="toggle()">
+        <div class="keyword-info">
+            <span *ngIf="type!='keyword'" class="keyword-icon">{{type | titlecase}}</span>
+            <span class="keyword-name">{{keyword.name}}</span>
+            <span class="keyword-elapsed">{{keyword.elapsedtime | durationFormat}}</span>
+        </div>
+        <div class="keyword-control">
+            <span (click)="expandMore($event)">
+                <mat-icon>expand_more</mat-icon>
+            </span>
+            <span (click)="expandLess($event)">
+                <mat-icon>expand_less</mat-icon>
+            </span>
+            <span (click)="link()">
+                <mat-icon>link</mat-icon>
+            </span>
+        </div>
+    </div>
+    <div class="keyword-content"
+        [style.display]="expanded ? '' : 'none'"
+        [style.border-left]="type!='keyword' ? '1px solid #168aad' : ''">
+        <app-keyword
+            *ngIf="keyword.setup"
+            class="setup"
+            [keyword]="keyword.setup">
+            [expandedAll]="expandedAll"
+        </app-keyword>
+        <app-keyword
+            *ngFor="let _keyword of keyword.keywords"
+            [keyword]="_keyword"
+            [expandedAll]="expandedAll">
+        </app-keyword>
+        <app-keyword
+            *ngIf="keyword.teardown"
+            class="teardown"
+            [keyword]="keyword.teardown"
+            [expandedAll]="expandedAll">
+        </app-keyword>
     </div>
 </div>

@@ -5,11 +5,11 @@ export class Suite {
     source!: string;
     passed!: boolean;
     status!: string;
-    starttime!: Date;
-    endtime!: Date;
+    starttime!: string;
+    endtime!: string;
     elapsedtime!: number;
-    setup!: Keyword;
-    teardown!: Keyword;
+    setup!: Keyword|null;
+    teardown!: Keyword|null;
     suites!: Suite[];
     tests!: Test[];
 
@@ -25,12 +25,12 @@ export class Test {
     source!: string;
     passed!: boolean;
     status!: string;
-    starttime!: Date;
-    endtime!: Date;
+    starttime!: string;
+    endtime!: string;
     elapsedtime!: number;
     tags!: string[];
-    setup!: Keyword;
-    teardown!: Keyword;
+    setup!: Keyword|null;
+    teardown!: Keyword|null;
     keywords!: Keyword[];
 
     constructor(data?:Partial<Test>) {
@@ -44,15 +44,15 @@ export class Keyword {
     source!: string;
     passed!: boolean;
     status!: string;
-    starttime!: Date;
-    endtime!: Date;
+    starttime!: string;
+    endtime!: string;
     elapsedtime!: number;
     args!: string[];
     kwname!: string;
     libname!: string;
     type!: string;
-    setup!: Keyword;
-    teardown!: Keyword;
+    setup!: Keyword|null;
+    teardown!: Keyword|null;
     keywords!: Keyword[];
 
     constructor(data?:Partial<Keyword>) {
