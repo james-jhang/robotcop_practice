@@ -10,6 +10,7 @@ import { SuiteComponent } from './logs/suite/suite.component';
 import { TestComponent } from './logs/test/test.component';
 import { KeywordComponent } from './logs/keyword/keyword.component';
 import { DurationFormatPipe } from './logs/duration-format.pipe';
+import { SearchBarComponent } from './logs/search-bar/search-bar.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { DurationFormatPipe } from './logs/duration-format.pipe';
         SuiteComponent,
         TestComponent,
         KeywordComponent,
-        DurationFormatPipe
+        DurationFormatPipe,
+        SearchBarComponent
     ]
 })
 export class TestExecutionLogModule { }
