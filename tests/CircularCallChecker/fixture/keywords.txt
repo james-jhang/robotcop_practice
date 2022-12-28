@@ -1,0 +1,21 @@
+*** Keywords ***
+Open Browser
+    Log    123
+
+Close Browser
+    Log    456
+
+Add an Item
+    HTTP Request::Add an Item
+    Wait Until The Request Got Responded To
+
+
+HTTP Request::Add an Item
+    Log    Request to add an item
+
+
+Wait Until The Request Got Responded To
+    Log    Wait...
+
+Delete Items
+    Log    Delete items
